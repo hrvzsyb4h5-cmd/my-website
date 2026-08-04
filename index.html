@@ -894,27 +894,6 @@ document.addEventListener('keydown', e=>{
   document.addEventListener('copy', function(e) { e.preventDefault(); return false; });
   document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
 
-  // --- DevTools 检测 ---
-  var _to = false;
-  var _check = function() {
-    var w = window.outerWidth - window.innerWidth > 200;
-    var h = window.outerHeight - window.innerHeight > 200;
-    if (w || h) {
-      if (!_to) {
-        _to = true;
-        document.body.style.filter = 'blur(30px)';
-        document.body.style.pointerEvents = 'none';
-      }
-    } else {
-      if (_to) {
-        _to = false;
-        document.body.style.filter = '';
-        document.body.style.pointerEvents = '';
-      }
-    }
-  };
-  setInterval(_check, 1500);
-
   // --- 防拖拽 ---
   document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
 })();
